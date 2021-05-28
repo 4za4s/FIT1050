@@ -1,6 +1,6 @@
 @charset "utf-8";
 /*
-Template Name: Miresa
+Template Name: Arialogic
 Author: <a href="https://www.os-templates.com/">OS Templates</a>
 Author URI: https://www.os-templates.com/
 Licence: Free to use under our free template licence terms
@@ -8,12 +8,76 @@ Licence URI: https://www.os-templates.com/template-terms
 File: Layout CSS
 */
 
-@import url("font-awesome.min.css");
+@import url("fontawesome-4.5.0.min.css");
 @import url("framework.css");
+
+/* slideshow
+----------------------------------------------------------------------------------------------------*/
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
 
 /* Rows
 --------------------------------------------------------------------------------------------------------------- */
-.row0, .row0 a{}
 .row1, .row1 a{}
 .row2, .row2 a{}
 .row3, .row3 a{}
@@ -21,33 +85,27 @@ File: Layout CSS
 .row5, .row5 a{}
 
 
-/* Top Bar
---------------------------------------------------------------------------------------------------------------- */
-#topbar{padding:15px 0; font-size:.8rem; text-transform:uppercase;}
-
-#topbar *{margin:0;}
-#topbar ul{float:right;}
-#topbar ul li{display:inline-block; margin-right:15px;}
-#topbar ul li:last-child{margin-right:0; padding-right:0; border-right:none;}
-#topbar i{line-height:normal;}
-
-
 /* Header
 --------------------------------------------------------------------------------------------------------------- */
-#header{}
+#header{padding:5px 0;}
+.bgded {
+	background-repeat: no-repeat;
+}
 
-#header #logo{margin:30px 0 0 0;}
-#header #logo h1{margin:0; padding:0; font-size:22px; text-transform:uppercase;}
+#header #logo{text-align:center;}
+#header #logo *{margin:0; padding:0; line-height:1;}
+#header #logo h1{font-size:42px; letter-spacing:5px; text-transform:uppercase;}
+#header #logo p{margin-top: 0px; font-size:.9rem; font-style:italic; text-transform:lowercase;}
 
 
 /* Page Intro
 --------------------------------------------------------------------------------------------------------------- */
-#pageintro{padding:180px 0;}
+#pageintro{padding:120px 0; text-align:center;}
 
-#pageintro article{display:block; max-width:75%; margin:0 auto; text-align:center;}
-#pageintro .heading{margin-bottom:20px; font-size:3rem;}
-#pageintro p:first-of-type{margin:0 0 20px 0; text-transform:uppercase; font-size:1.2rem; letter-spacing:5px;}
-#pageintro footer{margin-top:50px;}
+#pageintro article{display:block; max-width:60%; margin:0 auto;}
+#pageintro article .introtxt{margin:0 0 50px 0; padding:30px; border-radius:0 50px;}
+#pageintro article .heading{margin-bottom:30px; font-size:36px;}
+#pageintro article p:last-of-type{margin-bottom:0;}
 
 
 /* Content Area
@@ -57,36 +115,19 @@ File: Layout CSS
 /* Content */
 .container .content{}
 
-.sectiontitle{display:block; max-width:55%; margin:0 auto 80px; text-align:center;}
-.sectiontitle *{margin:0;}
+/* 4 Blocks */
+.blocks li{padding:50px 0; text-align:center;}
+.blocks li .btn{margin-bottom:30px;}
 
-.services{margin-bottom:80px;}
-.services > li > ul li{margin-bottom:10px;}
-.services > li:last-child, .services > li > ul li:last-child{margin-bottom:0;}/* Used when elements stack in smaller viewports */
-.services > li > ul li i{margin-right:8px;}
-
-.clients{}
-.clients li:last-child{margin-bottom:0;}/* Used when elements stack in small viewports */
-.clients li a{display:inline-block; max-width:100%;}
-
-.meta li{display:inline-block; font-size:.8rem;}
-.meta li::after{margin-left:5px; content:"|";}
-.meta li:last-child::after{margin:0; content:"";}
-
-.team{margin-bottom:80px;}
-.team figure{display:block; position:relative; max-width:320px;}
-.team > figure:last-child{margin-bottom:0;}/* Used when elements stack in smaller viewports */
-.team figure figcaption{padding-top:15px; text-align:center;}
-.team figure figcaption *{margin:0;}
-.team figure figcaption .heading{margin-bottom:8px; font-size:1.2rem;}
-.team figure figcaption em{display:block; font-size:.8rem; font-style:normal;}
-.team figure figcaption footer{margin-top:15px;}
-.team figure figcaption footer .faico li{margin:0 1px;}
-.team figure figcaption footer .faico li a{width:30px; height:30px; line-height:30px; font-size:12px;}
-
-.latest{margin-bottom:80px;}
-.latest article{max-width:320px;}
-.latest > article:last-child{margin-bottom:0;}/* Used when elements stack in smaller viewports */
+/* Elements */
+.elements li:last-child{margin-bottom:0;}/* Used for mobile devices when elements stack */
+.elements article{display:inline-block; width:100%; max-width:320px; height:100%;}
+.elements .txtwrap{padding:20px; border-top:5px solid; text-align:center;}
+.elements .txtwrap .heading{margin-bottom:0;}
+.elements .txtwrap time{display:block; font-size:.8rem; margin-bottom:10px;}
+.elements .txtwrap p{margin:0 0 15px 0;}
+.elements .txtwrap p:last-child{margin-bottom:0;}
+.elements .txtwrap footer{}
 
 /* Comments */
 #comments ul{margin:0 0 40px 0; padding:0; list-style:none;}
@@ -110,21 +151,33 @@ File: Layout CSS
 .sidebar .sdb_holder:last-child{margin-bottom:0;}
 
 
-/* Click to Action
+/* Testimonials
 --------------------------------------------------------------------------------------------------------------- */
-.cta{padding:80px 0; text-align:center;}
+#testimonials{}
+#testimonials li{}
+#testimonials li:last-child{margin-bottom:0;}
+#testimonials li div{position:relative; min-height:120px; padding:20px 20px 20px 120px; border-radius:0 35px;}
+#testimonials li img{position:absolute; left:20px;}
+#testimonials li span{margin-bottom:5px;}
+#testimonials li span strong{margin-bottom:5px;}
+#testimonials li span em{font-size:.8rem;}
+#testimonials li blockquote{display:block; position:relative; width:100%; margin:0; padding:0;}
 
-.cta .sectiontitle{margin-bottom:50px;}
-.cta form{max-width:80%; margin:0 auto; padding:0;}
-.cta input{width:100%; padding:8px; border:1px solid;}
-.cta button{display:inline-block; padding:8px 18px 10px; border:none; text-transform:uppercase; font-weight:700; cursor:pointer;}
+
+/* Logos
+--------------------------------------------------------------------------------------------------------------- */
+#logos{padding:30px 0;}
+#logos li{float:left; width:16%; margin-left:5%;}
+#logos li:first-child{margin-left:0;}
+#logos li img{opacity:.5;}
+#logos li:hover img{opacity:1;}
 
 
 /* Footer
 --------------------------------------------------------------------------------------------------------------- */
 #footer{padding:80px 0;}
 
-#footer .heading{margin-bottom:50px; font-size:1.2rem;}
+#footer .title{margin:0 0 50px 0; padding:0; font-size:1.2rem; text-transform:uppercase;}
 
 #footer .linklist li{display:block; margin-bottom:15px; padding:0 0 15px 0; border-bottom:1px solid;}
 #footer .linklist li:last-child{margin:0; padding:0; border:none;}
@@ -136,6 +189,10 @@ File: Layout CSS
 #footer .contact li *{margin:0; padding:0; line-height:1.6;}
 #footer .contact li i{display:block; position:absolute; top:0; left:0; width:30px; font-size:16px; text-align:center;}
 
+#footer input, #footer button{border:1px solid;}
+#footer input{display:block; width:100%; padding:8px;}
+#footer button{padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;}
+
 
 /* Copyright
 --------------------------------------------------------------------------------------------------------------- */
@@ -144,9 +201,6 @@ File: Layout CSS
 
 
 /* Transition Fade
-This gives a smooth transition to "ALL" elements used in the layout - other than the navigation form used in mobile devices
-If you don't want it to fade all elements, you have to list the ones you want to be faded individually
-Delete it completely to stop fading
 --------------------------------------------------------------------------------------------------------------- */
 *, *::before, *::after{transition:all .3s ease-in-out;}
 #mainav form *{transition:none !important;}
@@ -167,37 +221,36 @@ nav ul, nav ol{margin:0; padding:0; list-style:none;}
 #mainav .drop::after, #mainav li li .drop::after, #breadcrumb li a::after, .sidebar nav a::after{position:absolute; font-family:"FontAwesome"; font-size:10px; line-height:10px;}
 
 /* Top Navigation */
-#mainav{}
-#mainav ul{text-transform:uppercase;}
-#mainav ul ul{z-index:9999; position:absolute; width:180px; text-transform:none;}
-#mainav ul ul ul{left:180px; top:0;}
-#mainav li{display:inline-block; position:relative; margin:0 15px 0 0; padding:0;}
+#mainav{margin-bottom:40px; border-bottom:1px solid;}
+#mainav ul{text-transform:uppercase; text-align:center;}
+#mainav ul ul{z-index:9999; position:absolute; width:160px; text-transform:none; text-align:left;}
+#mainav ul ul ul{left:160px; top:0;}
+#mainav li{display:inline-block; position:relative; margin:0 30px 0 0; padding:0;}
 #mainav li:last-child{margin-right:0;}
 #mainav li li{width:100%; margin:0;}
-#mainav li a{display:block; padding:30px 0;}
+#mainav li a{display:block; padding:20px 0;}
 #mainav li li a{border:solid; border-width:0 0 1px 0;}
 #mainav .drop{padding-left:15px;}
 #mainav li li a, #mainav li li .drop{display:block; margin:0; padding:10px 15px;}
 #mainav .drop::after, #mainav li li .drop::after{content:"\f0d7";}
-#mainav .drop::after{top:35px; left:5px;}
+#mainav .drop::after{top:25px; left:5px;}
 #mainav li li .drop::after{top:15px; left:5px;}
 #mainav ul ul{visibility:hidden; opacity:0;}
 #mainav ul li:hover > ul{visibility:visible; opacity:1;}
 
-#mainav form{display:none; margin:0; padding:0;}
+#mainav form{display:none; margin:0; padding:20px 0;}
 #mainav form select, #mainav form select option{display:block; cursor:pointer; outline:none;}
 #mainav form select{width:100%; padding:5px; border:1px solid;}
 #mainav form select option{margin:5px; padding:0; border:none;}
 
 /* Breadcrumb */
-#breadcrumb{padding:120px 0 30px;}
-#breadcrumb ul{margin:0; padding:0; list-style:none; text-transform:uppercase;}
+#breadcrumb{padding:50px 0 20px;}
+#breadcrumb ul{margin:0; padding:0; list-style:none;}
 #breadcrumb li{display:inline-block; margin:0 6px 0 0; padding:0;}
 #breadcrumb li a{display:block; position:relative; margin:0; padding:0 12px 0 0; font-size:12px;}
-#breadcrumb li a::after{top:3px; right:0; content:"\f101";}
+#breadcrumb li a::after{top:5px; right:0; content:"\f101";}
 #breadcrumb li:last-child a{margin:0; padding:0;}
 #breadcrumb li:last-child a::after{display:none;}
-#breadcrumb .heading{margin:0; font-size:1.6rem;}
 
 /* Sidebar Navigation */
 .sidebar nav{display:block; width:100%;}
@@ -238,24 +291,6 @@ td{border-width:0 1px;}
 #gallery li{margin-bottom:30px;}
 
 
-/* Font Awesome Social Icons
---------------------------------------------------------------------------------------------------------------- */
-.faico{margin:0; padding:0; list-style:none;}
-.faico li{display:inline-block; margin:8px 5px 0 0; padding:0; line-height:normal;}
-.faico li:last-child{margin-right:0;}
-.faico a{display:inline-block; width:36px; height:36px; line-height:36px; font-size:18px; text-align:center;}
-
-.faico a{color:#FFFFFF; background-color:#000000;}
-.faico a:hover{}
-
-.faicon-dribble:hover{background-color:#EA4C89;}
-.faicon-facebook:hover{background-color:#3B5998;}
-.faicon-google-plus:hover{background-color:#DB4A39;}
-.faicon-linkedin:hover{background-color:#0E76A8;}
-.faicon-twitter:hover{background-color:#00ACEE;}
-.faicon-vk:hover{background-color:#4E658E;}
-
-
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
@@ -265,37 +300,27 @@ td{border-width:0 1px;}
 
 /* Colours
 --------------------------------------------------------------------------------------------------------------- */
-body{color:#7A7A7A; background-color:#FFFFFF;}
-a{color:#CF9C67;}
+body{color:#000000; background-color:#FFFFFF;}
+a{color:#82A800;}
 a:active, a:focus{background:transparent;}/* IE10 + 11 Bugfix - prevents grey background */
 hr, .borderedbox{border-color:#D7D7D7;}
 label span{color:#FF0000; background-color:inherit;}
-input:focus, textarea:focus, *:required:focus{border-color:#CF9C67;}
+input:focus, textarea:focus, *:required:focus{border-color:#82A800;}
+.overlay{color:#272930; background-color:inherit;}
+.overlay::after{color:inherit; background-color:rgba(0,0,0,.55);}
 
-.overlay{color:#FFFFFF; background-color:inherit;}
-.overlay::after{color:inherit; background-color:rgba(0,0,0,.8);}
-.overlay.light::after{background-color:rgba(0,0,0,.55);}
-
-.btn, .btn.inverse:hover{color:#FFFFFF; background-color:#CF9C67; border-color:#CF9C67;}
+.btn, .btn.inverse:hover{color:#020202; background-color:#82A800; border-color:#82A800;}
 .btn:hover, .btn.inverse{color:inherit; background-color:transparent; border-color:inherit;}
-
-.imgover:hover::before{background:rgba(0,0,0,.55);}
-.imgover, .imgover:hover::after{color:#FFFFFF;}
 
 
 /* Rows */
-.row0, .row0 a{color:#FFFFFF;}
-.row1{color:#FFFFFF; background-color:rgba(0,0,0,.2);}
-.row2{color:#FFFFFF; background-color:#222222;}
-.row3{color:#7A7A7A; background-color:#FFFFFF;}
-.row4{color:#7A7A7A; background-color:#F7F7F7;}
-.row5, .row5 a{color:#7A7A7A; background-color:#FFFFFF;}
+.row1, .row1 a{}
+.row2, .row2 a{color:#FFFFFF; background-color:transparent;}
+.row3{color:#888888; background-color:#FFFFFF;}
+.row4{color:#888888; background-color:#1F1F1F;}
+.row5, .row5 a{color:#888888; background-color:#FFFFFF;}
 
-.row3 .heading, .row4 .heading{color:#121212;}
-
-
-/* Top Bar */
-#topbar ul li:first-child a{color:#CF9C67;}
+.coloured{color:#FFFFFF; background-color:#82A800;}
 
 
 /* Header */
@@ -303,54 +328,55 @@ input:focus, textarea:focus, *:required:focus{border-color:#CF9C67;}
 
 
 /* Page Intro */
-#pageintro{color:#FFFFFF;}
+#pageintro article{color:#000000;}
+#pageintro article .introtxt{color:#000000; background-color:rgba(255,255,255,.75);}
 
 
 /* Content Area */
-.services a, .services > li > ul li:hover i{color:#FFFFFF;}
-.services a:hover, .services > li > ul li i{color:#CF9C67;}
+.blocks .overlay:hover{color:#000000;}
+.blocks .overlay:hover::after{color:inherit; background-color:rgba(255,255,255,.75);}
+
+.elements article{box-shadow:0px 2px 5px rgba(0,0,0,.1);}
+.elements .txtwrap{border-color:#82A800;}
 
 
-/* Click to Action */
-.cta input{background-color:transparent; border-color:rgba(255,255,255,.2);}
-.cta:hover input{color:#FFFFFF; border-color:rgba(255,255,255,1);}
-.cta input:focus{border-color:#CF9C67;}
-.cta button{color:#FFFFFF; background-color:#CF9C67;}
-/* The following was requested from one of our users, it's the so-called "must have" cross-browser placeholder text colouring:
-if your not worried about it, simply delete it, as the placeholder will take on the default preset colour, but it will be rendered differently in each browser */
-.cta input[type="text"][placeholder]{color:#FFFFFF;}/* W3C */
-.cta ::-webkit-input-placeholder{color:#FFFFFF;}/* Chrome */
-.cta :-ms-input-placeholder{color:#FFFFFF;}/* IE 10+ */
-.cta ::-moz-placeholder{color:#FFFFFF; opacity:1;}/* FF 19+ */
-.cta :-moz-placeholder{color:#FFFFFF; opacity:1;}/* FF -19 */
+/* Testimonials */
+#testimonials li div{color:#000000; background-color:rgba(255,255,255,.75);}
+#testimonials li div:hover{color:#FFFFFF; background-color:#82A800;}
 
 
 /* Footer */
-#footer hr, #footer .borderedbox, #footer .linklist li{border-color:rgba(0,0,0,.1);}
+#footer .title{color:#FFFFFF;}
+#footer .linklist li{border-color:#2E2E2E;}
+#footer input, #footer button{border-color:transparent;}
+#footer input{color:#FFFFFF; background-color:#2E2E2E;}
+#footer input:focus{border-color:#82A800;}
+#footer button{color:#FFFFFF; background-color:#82A800;}
 
 
 /* Navigation */
+#mainav{border-color:rgba(255,255,255,.2);}
 #mainav li a{color:inherit;}
-#mainav .active a, #mainav a:hover, #mainav li:hover > a{color:#CF9C67; background-color:inherit;}
-#mainav li li a, #mainav .active li a{color:#FFFFFF; background-color:rgba(0,0,0,.2); border-color:rgba(0,0,0,.2);}
-#mainav li li:hover > a, #mainav .active .active > a{color:#FFFFFF; background-color:#CF9C67;}
-#mainav form select{color:#FFFFFF; background-color:#000000;}
+#mainav .active a, #mainav a:hover, #mainav li:hover > a{color:#82A800; background-color:inherit;}
+#mainav li li a, #mainav .active li a{color:#FFFFFF; background-color:rgba(0,0,0,.6); border-color:rgba(0,0,0,.6);}
+#mainav li li:hover > a, #mainav .active .active > a{color:#FFFFFF; background-color:#82A800;}
+#mainav form select{color:#FFFFFF; background-color:#1F1F1F; border-color:#000000;}
 
 #breadcrumb a{color:inherit; background-color:inherit;}
-#breadcrumb li:last-child a{color:#CF9C67;}
+#breadcrumb li:last-child a{color:#82A800;}
 
 .container .sidebar nav a{color:inherit; border-color:#D7D7D7;}
-.container .sidebar nav a:hover{color:#CF9C67;}
+.container .sidebar nav a:hover{color:#82A800;}
 
 .pagination a, .pagination strong{border-color:#D7D7D7;}
-.pagination .current *{color:#FFFFFF; background-color:#CF9C67;}
+.pagination .current *{color:#FFFFFF; background-color:#82A800;}
 
-#backtotop{color:#FFFFFF; background-color:#CF9C67;}
+#backtotop{color:#FFFFFF; background-color:#82A800;}
 
 
 /* Tables + Comments */
 table, th, td, #comments .avatar, #comments input, #comments textarea{border-color:#D7D7D7;}
-#comments input:focus, #comments textarea:focus, #comments *:required:focus{border-color:#CF9C67;}
+#comments input:focus, #comments textarea:focus, #comments *:required:focus{border-color:#82A800;}
 th{color:#FFFFFF; background-color:#373737;}
 tr, #comments li, #comments input[type="submit"], #comments input[type="reset"]{color:inherit; background-color:#FBFBFB;}
 tr:nth-child(even), #comments li:nth-child(even){color:inherit; background-color:#F7F7F7;}
@@ -381,10 +407,7 @@ table a, #comments a{background-color:inherit;}
 @media screen and (max-width:900px){
 	.hoc{max-width:90%;}
 
-	#topbar{}
-
-	#header{padding:30px 0;}
-	#header #logo{margin-top:3px;}
+	#header{}
 
 	#mainav{}
 	#mainav ul{display:none;}
@@ -406,20 +429,26 @@ table a, #comments a{background-color:inherit;}
 @media screen and (max-width:750px){
 	.imgl, .imgr{display:inline-block; float:none; margin:0 0 10px 0;}
 	.fl_left, .fl_right{display:block; float:none;}
-	.group .group > *:last-child, .clear .clear > *:last-child, .clear .group > *:last-child, .group .clear > *:last-child{margin-bottom:0;}/* Experimental - Needs more testing in different situations, stops double margin when stacking */
 	.one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter{display:block; float:none; width:auto; margin:0 0 30px 0; padding:0;}
 
-	#header{text-align:center;}
-	#header #logo{margin:0 0 15px 0;}
+	#pageintro article{max-width:90%;}
 
-	#pageintro article{max-width:none; text-align:left;}
-	#pageintro .heading{font-size:2rem;}
+	#footer{padding-bottom:50px;}/* Not neccessary - just looks better */
+}
 
-	.sectiontitle{max-width:none;}
 
-	.services + footer{text-align:left;}
+@media screen and (min-width:451px) and (max-width:750px){
+	.blocks li{float:left; width:48%; margin-right:4%;}
+	.blocks li:nth-child(even){margin-right:0;}
+	.blocks li:nth-child(n+3){margin-bottom:0;}
+}
 
-	.cta > :first-child{margin-top:0;}
+
+@media screen and (max-width:450px){
+	#pageintro article{max-width:95%;}
+
+	.blocks li{float:none; width:100%; max-width:222px; margin:0 auto 30px;}
+	.blocks li:last-child{margin-bottom:0;}
 }
 
 
