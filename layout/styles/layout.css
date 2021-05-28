@@ -53,7 +53,7 @@ File: Layout CSS
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+#slideshow-container .active, .dot:hover {
   background-color: #717171;
 }
 
@@ -63,17 +63,20 @@ File: Layout CSS
   -webkit-animation-duration: 1.5s;
   animation-name: fade;
   animation-duration: 1.5s;
+  transition: opacity 1.5s linear;
+  -webkit-transition: opacity 1.5s linear;
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+	from {opacity: .4;}
+	to {opacity: 1;}
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+	from {opacity: .4;}
+	to {opacity: 1;}
 }
+
 
 
 /* Rows
@@ -96,7 +99,7 @@ File: Layout CSS
 #header #logo *{margin:0; padding:0; line-height:1;}
 #header #logo h1{font-size:42px; letter-spacing:5px; text-transform:uppercase;}
 #header #logo p{margin-top: 0px; font-size:.9rem; font-style:italic; text-transform:lowercase;}
-
+.ontop {position: absolute;}
 
 /* Page Intro
 --------------------------------------------------------------------------------------------------------------- */
@@ -120,7 +123,7 @@ File: Layout CSS
 .blocks li .btn{margin-bottom:30px;}
 
 /* Elements */
-.elements li:last-child{margin-bottom:0;}/* Used for mobile devices when elements stack */
+.elements li:last-child{margin-bottom:10;}/* Used for mobile devices when elements stack */
 .elements article{display:inline-block; width:100%; max-width:320px; height:100%;}
 .elements .txtwrap{padding:20px; border-top:5px solid; text-align:center;}
 .elements .txtwrap .heading{margin-bottom:0;}
@@ -202,7 +205,7 @@ File: Layout CSS
 
 /* Transition Fade
 --------------------------------------------------------------------------------------------------------------- */
-*, *::before, *::after{transition:all .3s ease-in-out;}
+*, *::before, *::after{transition:all 2s ease-in-out;}
 #mainav form *{transition:none !important;}
 
 
